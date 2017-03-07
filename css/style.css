@@ -1,0 +1,25 @@
+#map{
+	width:100%;
+	height:80vh;
+}
+
+#presentation{
+	width:100%;
+	height:400px;
+	overflow: hidden;
+	position:relative;
+}
+
+#adress{
+	background: rgba(0,0,0,0.5);
+	position:absolute;
+	bottom:0;
+	width:100%;
+	padding:10px;
+	color:white;
+}
+
+#home,#comments,#mageMap,#favorites{
+	background: url(../img/background.jpg) no-repeat fixed;
+	background-size: cover;
+}

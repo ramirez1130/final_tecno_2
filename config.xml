@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget xmlns	= "http://www.w3.org/ns/widgets"
+        xmlns:gap	= "http://phonegap.com/ns/1.0"
+        id	= "ar.com.bramirez.hotelier"
+        version	= "0.0.1" >
+	<name>Hotelier</name>
+	<description>Agenda de hoteles</description>
+	<author href="url" email="ramirez7358@gmail.com">Brian Ramirez</author>
+	<icon src="icon.png" />
+	<gap:splash src="splash.png" />
+</widget>

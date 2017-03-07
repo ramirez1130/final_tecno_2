@@ -1,15 +1,167 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-	<meta charset="UTF-8">
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<title>Final Tecno II</title>
 	<!--Css-->
-	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css"/>
+	<link rel="stylesheet" href="css/style.css"/>
+	<link rel="stylesheet" href="css/theme-app.min.css">
 	<!--Js-->
+	<script src="js/jquery-1.12.4.min.js"></script>
 	<script src="js/jquery.mobile-1.4.5.min.js"></script>
-	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCszikJ7vc6Lg6ZT5Y91WYiA6KpLFsDcPA"></script>
+	<script src="js/jquery.googlemap.js"></script>
+	<script src="js/script.js"></script>
 </head>
 <body>
-	<h1>Final tecno II</h1>
+	<section data-role="page" id="home">
+		<header data-role="header" data-theme="a">
+			<h1>Hotelier</h1>
+		</header>
+		<article data-role="content">
+			<ul 
+				id="listHotels"
+				data-role="listview" 
+				data-inset="true" 
+				data-autodividers="true"
+				data-filter="true"
+				data-filter-placeholder="Buscar hotel..."
+				data-split-icon="mail"
+				data-theme="b"
+			></ul>
+		</article>
+		<footer data-role="footer" data-position="fixed" data-theme="b">
+			<nav data-role="navbar">
+				<ul>
+					<li><a data-icon="tag" data-role="button" href="#home">Hotels</a></li>
+					<li><a data-icon="star" data-role="button" href="#favorites">Favoritos</a></li>
+					<li><a data-icon="info" data-role="button" href="#about">Acerca</a></li>
+				</ul>
+			</nav>
+		</footer>
+	</section>
+
+	<section data-role="page" id="hotel">
+		<header data-role="header" data-theme="a">
+			<a href="#home" data-transition="flow" data-direction="reverse" data-icon="back" data-iconpos="notext">Volver</a>
+			<a data-icon="bars"  data-iconpos="notext" data-role="button" href="#submenu">Menu</a>
+			<nav data-role="panel" id="submenu" data-display="overlay" data-position="left">
+				<ul data-role="listview" id="submenu-options">
+					<li data-theme="b" data-role="list-divider">Informacion</li>
+					<li data-icon="location"><a href="#pageMap">Ubicacion</a></li>
+					<li data-icon="comment"><a href="#comments">Comentarios</a></li>
+					<li data-icon="star"><a id="addFavorites" href="#" data-action="add">Agregar a favoritos</a></li>
+				</ul>
+			</nav>
+			<h1 id="hotelName"></h1>
+		</header>
+		<article data-role="content">
+			<section id="presentation">
+				<section id="adress">
+					<div id="container"></div>
+				</section>
+			</section>
+			<p id="hotelDescription"></p>
+		</article>
+		<footer data-role="footer" data-position="fixed" data-theme="b">
+			<nav data-role="navbar">
+				<ul>
+					<li><a data-icon="tag" data-role="button" href="#home">Hotels</a></li>
+					<li><a data-icon="star" data-role="button" href="#favorites">Favoritos</a></li>
+					<li><a data-icon="info" data-role="button" href="#">Acerca</a></li>
+				</ul>
+			</nav>
+		</footer>
+	</section>
+
+	<section data-role="page" id="comments">
+		<header data-role="header" data-theme="a">
+			<a href="#hotel" data-transition="flip" data-direction="reverse" data-icon="back" data-iconpos="notext">Volver</a>
+			<h1>Comentarios</h1>
+		</header>
+		<article data-role="content">
+			<ul id="listComments" data-role="listview"></ul>
+		</article>
+		<footer data-role="footer" data-position="fixed" data-theme="b">
+			<nav data-role="navbar">
+				<ul>
+					<li><a data-icon="tag" data-role="button" href="#home">Hotels</a></li>
+					<li><a data-icon="star" data-role="button" href="#favorites">Favoritos</a></li>
+					<li><a data-icon="info" data-role="button" href="#">Acerca</a></li>
+				</ul>
+			</nav>
+		</footer>
+	</section>
+
+	<section data-role="page" id="pageMap">
+		<header data-role="header" data-theme="a">
+			<a href="#hotel" data-transition="flip" data-direction="reverse" data-icon="back" data-iconpos="notext">Volver</a>
+			<h1>Ubicacion</h1>
+		</header>
+		<div id="map"></div>
+		<footer data-role="footer" data-position="fixed" data-theme="b">
+			<nav data-role="navbar">
+				<ul>
+					<li><a data-icon="tag" data-role="button" href="#home">Hotels</a></li>
+					<li><a data-icon="star" data-role="button" href="#favorites">Favoritos</a></li>
+					<li><a data-icon="info" data-role="button" href="#">Acerca</a></li>
+				</ul>
+			</nav>
+		</footer>
+	</section>
+
+	<section data-role="page" id="favorites">
+		<header data-role="header" data-theme="a">
+			<h1>Favoritos</h1>
+		</header>
+		<section data-role="content">
+			<ul 
+				id="listHotelsFavorites"
+				data-role="listview" 
+				data-inset="true" 
+				data-autodividers="true"
+				data-filter="true"
+				data-filter-placeholder="Buscar hotel..."
+				data-split-icon="mail"
+			></ul>
+		</section>
+		<footer data-role="footer" data-position="fixed" data-theme="b">
+			<nav data-role="navbar">
+				<ul>
+					<li><a data-icon="tag" data-role="button" href="#home">Hotels</a></li>
+					<li><a data-icon="star" data-role="button" href="#favorites">Favoritos</a></li>
+					<li><a data-icon="info" data-role="button" href="#">Acerca</a></li>
+				</ul>
+			</nav>
+		</footer>
+	</section>
+
+	<section data-role="page" id="about">
+		<header data-role="header" data-theme="a">
+			<a href="#" data-rel="back" data-icon="back" data-iconpos="notext"></a>
+			<h1>Final Tecno II</h1>
+		</header>
+		<article data-role="content">
+			<ul>
+				<li>Alumno: Brian Ramirez</li>
+				<li>Materia: Tecnologia de las comunicaciones II</li>
+				<li>Semestre: Segundo</li>
+				<li>Docente: Omar Toyos</li>
+			</ul>
+		</article>
+	</section>
+
+	<!--Ventana modal-->
+	<section data-role="page" data-dialog="true" id="dialog">
+		<header data-role="header" data-theme="a">
+			<a href="#home" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-left">Close</a>
+			<h1>Ups....</h1>
+		</header>
+		<article data-role="content">
+			<h1 id="messageError"></h1>
+		</article>
+	</section>
 </body>
 </html>
